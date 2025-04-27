@@ -1,0 +1,16 @@
+@mixin theam ($color){
+    background-color: black;
+    color: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    
+    font-family: sans-serif;
+    // border: 1px solid black;
+}
+
+
