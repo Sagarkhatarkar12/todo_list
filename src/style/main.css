@@ -51,7 +51,7 @@
 }
 .container-todo-list-search-text-area-value {
   width: 100%;
-  height: 2rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,10 +104,6 @@
   zoom: 1.4;
   cursor: pointer;
 }
-.container-todo-list-message:hover {
-  background-color: lightgreen;
-  color: white;
-}
 .container-todo-list-message-heading {
   display: flex;
   flex-direction: column;
@@ -116,9 +112,14 @@
 .container-todo-list-message-heading h1 {
   font-size: 1.2rem;
 }
+.container-todo-list-message-heading h1:hover {
+  color: white;
+}
 .container-todo-list-message-heading p {
   line-height: 1.2;
-  color: gray;
+}
+.container-todo-list-message-heading p:hover {
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
