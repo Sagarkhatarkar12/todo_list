@@ -1,160 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo list - with dsb</title>
     <link rel="stylesheet" href="/src/style/main.css">
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="container">
         <div class="container-todo-list">
             <div class="container-todo-list-header">
 
-            <h1 class="container-todo-list-header-heading">Welcome back, <span class="container-todo-list-userName">Sagar khatarkar</span></h1>
-            <p class="container-todo-list-header-para">You've got 7 tasks coming up in the next days.</p>
-        </div>
-        <div class="container-todo-list-search">
-            <div class="container-todo-list-search-CheckBox">
-            <input type="checkbox" class="container-todo-list-search-CheckBoxvalue" name="" id="">
-        </div>
-            <div class="container-todo-list-search-input-text">
-            <input type="text" placeholder="add new tasks ..." class="container-todo-list-search-input-text-value" name="" id="">
-        </div>
-        <div class="container-todo-list-search-btn">
-            <button class="container-todo-list-search-btn-value"><i class="ri-search-line"></i></button>
-        </div>
+                <h1 class="container-todo-list-header-heading">Welcome back, <span
+                        class="container-todo-list-userName">Sagar khatarkar</span></h1>
+                <p class="container-todo-list-header-para">You've got 7 tasks coming up in the next days.</p>
+            </div>
+            <div class="container-todo-list-search">
+                <div>
+                    <div class="container-todo-list-search-option">
+                        <select class="container-todo-list-search-option-value" name="" id="CateogroySelection">
+                            <option value="shopping">shopping</option>
+                            <option value="study">study</option>
+                            <option value="Reading">Reading</option>
+                            <option value="playing">playing</option>
+                        </select>
+                    </div>
+
+                    <div class="container-todo-list-search-input-text">
+                        <input type="text" placeholder="add new tasks ..."
+                            class="container-todo-list-search-input-text-value" name="" id="inputText">
+                    </div>
+                    <div class="container-todo-list-search-text-area">
+                        <textarea placeholder="add description optional....." name="" id="textArea" cols="30" rows="10"
+                            class="container-todo-list-search-text-area-value"></textarea>
+                    </div>
+
+                    <div class="container-todo-list-search-btn">
+                        <button id="submit" type="submit" class="container-todo-list-search-btn-value">Add Note</button>
+                    </div>
+
+
+                </div>
+                
+
+                 
+               <div class="container-todo-list-message-container" id="messageContainer">
+
+               </div>
 
 
         </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-        <div class="container-todo-list-message">
-            <div class="container-todo-list-message-checkBox"> 
-                <input class="container-todo-list-message-heading-checkBox-value" type="checkbox" name="" id="">
-
-            </div>
-            <div class="container-todo-list-message-heading">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quasi.</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis cumque assumenda magnam voluptatum tempore, nesciunt iste ratione dolorum repudiandae sed reprehenderit ipsa nihil porro sunt mollitia quae. Provident, aliquid!</p>
-            </div>
-        </div>
-
-
-
-        </div>
-    </div>
+        <script src="script/main.js"></script>
 </body>
+
 </html>

@@ -7,9 +7,9 @@
 
 .container {
   background-color: #f6f6f6;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  padding: 1rem 3rem;
+  padding: 1rem 14rem;
   color: black;
 }
 .container-todo-list-header {
@@ -24,32 +24,49 @@
   color: gray;
 }
 .container-todo-list-search {
-  margin: 10px 0px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 2rem 0rem;
 }
-.container-todo-list-search-CheckBoxvalue {
-  zoom: 1.5;
+.container-todo-list-search-option {
+  display: inline-block;
 }
-.container-todo-list-search-CheckBoxvalue-value {
-  height: 3rem;
-  font-size: 3rem;
-  padding: 1rem;
+.container-todo-list-search-option-value {
+  width: 6rem;
+  height: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 1rem;
+  font-weight: bold;
+}
+.container-todo-list-search-text-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0rem;
+}
+.container-todo-list-search-text-area-value {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 0rem 1rem;
+  font-weight: bold;
+  border: 1px solid gray;
 }
 .container-todo-list-search-input-text {
-  width: 20rem;
-  height: 2rem;
+  display: inline-block;
 }
 .container-todo-list-search-input-text-value {
-  height: 100%;
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-size: 1.4rem;
-  padding: 0rem 1rem;
-  color: gray;
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
 }
 .container-todo-list-search-btn {
   border: none;
@@ -57,24 +74,39 @@
 }
 .container-todo-list-search-btn-value {
   border: none;
+  background-color: green;
+  color: white;
   outline: none;
-  background-color: transparent;
   cursor: pointer;
-  font-size: 1.4rem;
-  color: gray;
+  font-size: 1rem;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
 }
 .container-todo-list-message {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
-  background-color: green;
-  color: white;
-  border-radius: 3rem;
+  border-radius: 1rem;
   padding: 1rem 1rem;
   margin: 1rem 0rem;
+  cursor: pointer;
+}
+.container-todo-list-message-delete-value {
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 1rem;
 }
 .container-todo-list-message-checkBox {
-  zoom: 2;
+  zoom: 1.4;
+  cursor: pointer;
+}
+.container-todo-list-message:hover {
+  background-color: lightgreen;
+  color: white;
 }
 .container-todo-list-message-heading {
   display: flex;
@@ -82,11 +114,11 @@
   gap: 1rem;
 }
 .container-todo-list-message-heading h1 {
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 .container-todo-list-message-heading p {
-  line-height: 1.5;
-  font-weight: bold;
+  line-height: 1.2;
+  color: gray;
 }
 
 /*# sourceMappingURL=main.css.map */
