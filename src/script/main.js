@@ -25,10 +25,8 @@ submitButton.addEventListener("click", (e) => {
     textAreaValue = textArea.value.trim();
     let categoryValue = Category.value.trim();
     CalendarValue = CalendarSelection.value;
-
     collection_item.push({ "cate": categoryValue, "inputTextValue": inputTextValue, "textAreaValue": textAreaValue, "PrioritySelection": PrioritySelection.value, "CalendarValue": CalendarValue })
     localStorage.setItem("collection_item", JSON.stringify(collection_item));
-    console.log(CalendarValue)
 
 
     if (inputTextValue == "" || textAreaValue == "" || categoryValue == "SelectOption"|| PrioritySelection.value=="SelectProrites" || CalendarValue == "") {
@@ -98,15 +96,16 @@ function CheckBox(e) {
 
     }
 
-    console.log("selectCheckBox"+select_checkBox);
 }
 
 // deleteAll item logic
 function deleteAll(){
+    
     select_checkBox.forEach((item) => {
         console.log(item)
         deleteItem(item-1);
     })
+    select_checkBox = [];
 }
 
 // delete item
@@ -132,7 +131,6 @@ if (localStorage.getItem("collection_item") != null) {
 
 // searching logic
 let searchInput = document.querySelector("#search");
-console.log(searchInput)
 searchInput.addEventListener("click", (e) => {
 
 })
