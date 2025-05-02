@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: #ffffff;
 }
 .container-todo-list-header-heading {
   font-size: 2rem;
@@ -58,21 +59,16 @@
   font-weight: bold;
 }
 .container-todo-list-search-text-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 1rem 0rem;
 }
 .container-todo-list-search-text-area-value {
   width: 100%;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 2rem;
   border-radius: 1rem;
   padding: 0rem 1rem;
+  border: none;
   font-weight: bold;
-  border: 1px solid gray;
+  outline: none;
 }
 .container-todo-list-search-input-text {
   display: inline-block;
@@ -96,17 +92,27 @@
   border-radius: 2rem;
   padding: 0.5rem 1rem;
 }
-.container-todo-list-message {
+.container-todo-list-message-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0rem;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  gap: 1rem;
+}
+.container-todo-list-message-container-message {
+  padding: 0rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  border-radius: 1rem;
-  padding: 1rem 1rem;
-  margin: 1rem 0rem;
-  cursor: pointer;
+  gap: 1rem;
+  height: 15rem;
+  width: 100%;
+  border: green solid 1px;
+  border-radius: 2rem;
 }
-.container-todo-list-message-delete-value {
+.container-todo-list-message-container-message-delete-value {
   background-color: green;
   color: white;
   border: none;
@@ -114,41 +120,51 @@
   padding: 0.5rem;
   border-radius: 1rem;
 }
-.container-todo-list-message-checkBox {
+.container-todo-list-message-container-message-checkBox {
   zoom: 1.4;
   cursor: pointer;
 }
-.container-todo-list-message-heading {
+.container-todo-list-message-container-message-heading {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   height: 100%;
   width: 100%;
 }
-.container-todo-list-message-heading-value {
+.container-todo-list-message-container-message-heading-value {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.2rem;
   background-color: transparent;
-  height: 4rem;
-  width: 70rem;
+  width: 20rem;
   padding: 1rem;
   border: none;
   outline: none;
 }
-.container-todo-list-message-heading-value:hover {
-  color: white;
+.container-todo-list-message-container-message-heading-value:hover {
+  color: black;
+  cursor: pointer;
 }
-.container-todo-list-message-heading-para-value {
-  line-height: 1.2;
+.container-todo-list-message-container-message-heading-para-value {
   font-size: 1.2rem;
   background-color: transparent;
-  height: 8rem;
+  height: 100%;
   width: 100%;
   padding: 1rem;
   border: none;
   outline: none;
 }
-.container-todo-list-message-heading-para-value:hover {
-  color: white;
+.container-todo-list-message-container-message-heading-para-value:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -7,6 +7,7 @@ let messageContainer = document.querySelector("#messageContainer");
 let inputTextValue;
 let PrioritySelection = document.querySelector("#PrioritySelection");
 let CalendarValue;
+let select_checkBox = [];
 
 let textAreaValue;
 let CalendarSelection = document.querySelector("#CalendarSelection");
@@ -25,12 +26,12 @@ submitButton.addEventListener("click", (e) => {
     let categoryValue = Category.value.trim();
     CalendarValue = CalendarSelection.value;
 
-    collection_item.push({ "cate":categoryValue,"inputTextValue": inputTextValue, "textAreaValue": textAreaValue, "PrioritySelection": PrioritySelection.value, "CalendarValue": CalendarValue })
-    localStorage.setItem("collection_item", JSON.stringify(collection_item)); 
+    collection_item.push({ "cate": categoryValue, "inputTextValue": inputTextValue, "textAreaValue": textAreaValue, "PrioritySelection": PrioritySelection.value, "CalendarValue": CalendarValue })
+    localStorage.setItem("collection_item", JSON.stringify(collection_item));
     console.log(CalendarValue)
-        
 
-    if (inputTextValue == "" || textAreaValue == "" || categoryValue == "SelectOption") {
+
+    if (inputTextValue == "" || textAreaValue == "" || categoryValue == "SelectOption"|| PrioritySelection.value=="SelectProrites" || CalendarValue == "") {
         alert("some error try again later");
         return;
     }
@@ -40,6 +41,7 @@ submitButton.addEventListener("click", (e) => {
         inputText.value = "";
         textArea.value = "";
         CalendarSelection.value = "";
+        PrioritySelection.value = "SelectProrites";
         Category.value = "SelectOption";
         render();
     }
@@ -47,22 +49,23 @@ submitButton.addEventListener("click", (e) => {
 
 
 })
-
+// Edit Note logic
 
 function Edit_Note(e) {
- let element1= e.target.parentNode.parentNode.children[0];
-let element2 = e.target.parentNode.parentNode.children[1];
-element1.removeAttribute("readonly");
-element2.removeAttribute("readonly");
-element1.style.border = "2px solid black";
-element2.style.border = "2px solid black";
+    let element1 = e.target.parentNode.parentNode.children[0];
+    let element2 = e.target.parentNode.parentNode.children[1];
+    element1.removeAttribute("readonly");
+    element2.removeAttribute("readonly");
+    element1.style.border = "2px solid black";
+    element2.style.border = "2px solid black";
 
-element1.focus();
-element2.focus();
+    element1.focus();
+    element2.focus();
 }
+// Update Note logic
 
-function Update_Note(e,index) {
-    let element1= e.target.parentNode.parentNode.children[0];
+function Update_Note(e, index) {
+    let element1 = e.target.parentNode.parentNode.children[0];
     let element2 = e.target.parentNode.parentNode.children[1];
     element1.setAttribute("readonly", "true");
     element2.setAttribute("readonly", "true");
@@ -73,28 +76,38 @@ function Update_Note(e,index) {
     collection_item[index].inputTextValue = inputTextValue;
     collection_item[index].textAreaValue = textAreaValue;
     localStorage.setItem("collection_item", JSON.stringify(collection_item));
-render();
+    render();
 
 
 }
 
 
 // checkbox logic 
+
 function CheckBox(e) {
     console.log(e.target.checked);
     if (e.target.checked == true) {
-        console.log(e.target.parentNode)
+        console.log(e.target.parentNode.parentNode.children[1].innerText)
+        select_checkBox.push(e.target.parentNode.parentNode.children[1].innerText);
+     
         e.target.parentNode.parentNode.style.textDecoration = "line-through";
-
     }
     else {
         e.target.parentNode.parentNode.style.textDecoration = "none";
+        select_checkBox.pop(e.target.parentNode.parentNode.children[1].innerText);
 
     }
 
-
+    console.log("selectCheckBox"+select_checkBox);
 }
 
+// deleteAll item logic
+function deleteAll(){
+    select_checkBox.forEach((item) => {
+        console.log(item)
+        deleteItem(item-1);
+    })
+}
 
 // delete item
 function deleteItem(index) {
@@ -117,6 +130,14 @@ if (localStorage.getItem("collection_item") != null) {
 }
 
 
+// searching logic
+let searchInput = document.querySelector("#search");
+console.log(searchInput)
+searchInput.addEventListener("click", (e) => {
+
+})
+
+
 // render function
 
 function render() {
@@ -131,21 +152,22 @@ function render() {
 
     collection_item.forEach((item, index) => {
         console.log(index); let bgcolor = "white";
-        if (item.PrioritySelection == "red") bgcolor = "red";
-        else if (item.PrioritySelection == "yellow") bgcolor = "yellow";
-        else bgcolor = "green"
+        if (item.PrioritySelection == "red") bgcolor = "linear-gradient(to right, #ff6b6b, #ff4e50)";
+        else if (item.PrioritySelection == "yellow") bgcolor = " linear-gradient(to right, #FFF89A, #FFD93D)";
+        else bgcolor = " linear-gradient(to right, #b8f1b0, #70e000)"
 
-        messageContainer.innerHTML += ` <div class="container-todo-list-message bgcolor" style="background-color: ${bgcolor};">
-                    <div class="container-todo-list-message-checkBox" >
-                        <input class="container-todo-list-message-heading-checkBox-value" onchange="CheckBox(event)" type="checkbox" name="" id="">
+        messageContainer.innerHTML += ` <div class="container-todo-list-message-container-message" style="background: ${bgcolor};">
+                    <div class="container-todo-list-message-container-message-checkBox" >
+                        <input class="container-todo-list-message-container-message-checkBox-value" onchange="CheckBox(event)" type="checkbox" name="" id="">
 
                     </div>
-                    <div class="container-todo-list-message-heading">
+                    <p> ${index+1}</p>
+                    <div class="container-todo-list-message-container-message-heading">
                
-                        <textArea type="text" value="" class="container-todo-list-message-heading-value" readonly>${item.inputTextValue}</textArea>
-                       <textArea type="text" value="" class="container-todo-list-message-heading-para-value" readonly>${item.textAreaValue}</textArea>
+                        <textArea  class="container-todo-list-message-container-message-heading-value" minlength="2" maxlength="20" readonly>${item.inputTextValue}</textArea>
+                       <textArea  class="container-todo-list-message-container-message-heading-para-value" minlength="2" maxlength="300"  readonly>${item.textAreaValue}</textArea>
 
-
+                    
                        <p>${item.cate}</p>
                         <p>${item.CalendarValue}</p>
                    
@@ -157,8 +179,8 @@ function render() {
                     </div>
                      </div>
                     
-                    <div class="container-todo-list-message-delete">
-                        <button onclick="deleteItem(${index})" class="container-todo-list-message-delete-value"><i class="ri-delete-bin-line"></i></button>
+                    <div class="container-todo-list-search-btn">
+                        <button onclick="deleteItem(${index})" class="container-todo-list-search-btn-value"><i class="ri-delete-bin-line"></i></button>
                 </div>
             </div>
 
