@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container">    
         <div class="container-Navigation-bar">
             <ul class="container-Navigation-bar-left">
                 <li class="container-Navigation-bar-left-item"><a href=""><img src="/src/assets/image/ChatGPT Image May 3, 2025, 03_00_10 PM.png" alt=""></a></li>
@@ -22,9 +22,14 @@
             </ul>
             <ul class="container-Navigation-bar-right">
                 <div class="container-Navigation-bar-right-search-bar">
-                    <input type="text" placeholder="Search..." class="container-Navigation-bar-right-search-bar-input">
-                    <button class="container-Navigation-bar-right-search-bar-button"><i class="ri-search-line"></i></button>
+                    <input type="text" placeholder="Search..." id="searchBarInput" class="container-Navigation-bar-right-search-bar-input" required>
+                    <button id ="searchBtn" class="container-Navigation-bar-right-search-bar-button"><i class="ri-search-line"></i></button>
+              
+                    <ul class="container-Navigation-bar-right-search-bar-results" id="searchResults">
+                   
+                    </ul>
                 </div>
+                
             </ul>
         </div>
 
@@ -88,6 +93,7 @@
             <button id="search" type="submit" onclick="deleteAll()" class="container-todo-list-search-btn-value">All
                 Delete</button>
             <div class="container-todo-list-message-container" id="messageContainer">
+
             </div>
 
 

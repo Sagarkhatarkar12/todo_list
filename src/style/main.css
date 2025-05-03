@@ -13,7 +13,7 @@
   color: black;
 }
 .container-Navigation-bar {
-  background-color: rgb(184, 181, 181);
+  background-color: green;
   color: white;
   display: flex;
   width: 100%;
@@ -44,6 +44,7 @@
   gap: 1rem;
 }
 .container-Navigation-bar-right-search-bar {
+  position: relative;
   height: 2rem;
   width: 20rem;
   display: flex;
@@ -58,11 +59,23 @@
 .container-Navigation-bar-right-search-bar-button {
   height: 100%;
   width: 20%;
-  background-color: green;
+  background-color: blue;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
   outline: none;
   border: none;
+  font-weight: 600;
+}
+.container-Navigation-bar-right-search-bar-button:hover {
+  background-color: green;
+  border: 1px solid white;
+}
+.container-todo-list {
+  padding: 2rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 .container-todo-list-header {
   display: flex;
@@ -221,6 +234,23 @@
 
 .hidden {
   display: none;
+}
+
+.container-Navigation-bar-right-search-bar-results {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  position: absolute;
+  top: 2rem;
+  background: white;
+  width: 16rem;
+  height: 100%;
+  padding: 1rem 1rem;
+}
+
+.container-Navigation-bar-right-search-bar-results li {
+  color: black;
+  list-style: none;
 }
 
 /*# sourceMappingURL=main.css.map */

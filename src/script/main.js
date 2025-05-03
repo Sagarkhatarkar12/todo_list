@@ -9,8 +9,11 @@ let PrioritySelection = document.querySelector("#PrioritySelection");
 let CalendarValue;
 let select_checkBox = [];
 let textAreaValue;
+let searchBarInput = document.querySelector("#searchBarInput");
+let searchBtn = document.querySelector("#searchBtn");
 let CalendarSelection = document.querySelector("#CalendarSelection");
 let collection_item = []
+let searchResults = document.querySelector("#searchResults");
 
 
 
@@ -19,13 +22,10 @@ let collection_item = []
 let submitButton = document.querySelector("#submit");
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
-
     inputTextValue = inputText.value.trim();
     textAreaValue = textArea.value.trim();
     let categoryValue = Category.value.trim();
     CalendarValue = CalendarSelection.value;
-
-
 
     if (inputTextValue == "" || textAreaValue == "" || categoryValue == "SelectOption" || PrioritySelection.value == "SelectProrites" || CalendarValue == "") {
         alert("some error try again later");
@@ -49,22 +49,21 @@ submitButton.addEventListener("click", (e) => {
 
 function Edit_Note(e) {
 
-    
+
     let element1 = e.target.parentNode.parentNode.children[0];
     let element2 = e.target.parentNode.parentNode.children[1];
     element1.removeAttribute("readonly");
     element2.removeAttribute("readonly");
     element1.style.border = "2px solid black";
     element2.style.border = "2px solid black";
-
     element1.focus();
     element2.focus();
-; 
+    ;
 }
 // Update Note logic
 
 function Update_Note(e, index) {
-   
+
     let element1 = e.target.parentNode.parentNode.children[0];
     let element2 = e.target.parentNode.parentNode.children[1];
     element1.setAttribute("readonly", "true");
@@ -77,7 +76,7 @@ function Update_Note(e, index) {
     collection_item[index].textAreaValue = textAreaValue;
     localStorage.setItem("collection_item", JSON.stringify(collection_item));
     render();
- 
+
 
 }
 
@@ -122,13 +121,42 @@ if (localStorage.getItem("collection_item") != null) {
 }
 
 
-// searching logic
-let searchInput = document.querySelector("#search");
-console.log(searchInput)
-searchInput.addEventListener("click", (e) => {
+// searching  Bar logic
+searchBtn.addEventListener("click", () => {
+    Data_collection = localStorage.getItem('collection_item');
+    Data_collection = JSON.parse(Data_collection);
+    let searchValue = searchBarInput.value.trim().toLowerCase();
 
+    let filterData = Data_collection.filter((item) => {
+        return item.inputTextValue.toLowerCase().includes(searchValue) || item.textAreaValue.toLowerCase().includes(searchValue)
+    })
+    searchResults.innerHTML ="";
+    // if(filterData.length == 0) {
+    //     // searchResults.innerHTML = `
+    //     // <div class="containerList">
+    //     // <li class="container-Navigation-bar-right-search-bar-results-item">No results found</li>
+    //     // </div>`
+    //     return
+    // }
+    console.log(filterData)
+    if(filterData.length==0){
+        searchResults.innerHTML= ` 
+     
+        <li class="container-Navigation-bar-right-search-bar-results-item">No found</li>
+        
+        `
+    }
+    filterData.forEach((item)=>{
+        console.log(item.inputTextValue);
+        console.log(item)
+        console.log()
+        // document.writeln(item.inputTextValue);
+
+        searchResults.innerHTML+= `<li class="container-Navigation-bar-right-search-bar-results-item">${item.inputTextValue}</li>`
+    })
+
+    // console.log(searchBarInput.value);
 })
-
 
 // render function
 
@@ -140,7 +168,7 @@ function render() {
     countElement.style.fontWeight = "bold";
     countElement.innerHTML = collection_item.length
     collection_item.forEach((item, index) => {
-       let bgcolor = "white";
+        let bgcolor = "white";
         if (item.PrioritySelection == "red") bgcolor = "linear-gradient(to right, #ff6b6b, #ff4e50)";
         else if (item.PrioritySelection == "yellow") bgcolor = " linear-gradient(to right, #FFF89A, #FFD93D)";
         else bgcolor = " linear-gradient(to right, #b8f1b0, #70e000)"

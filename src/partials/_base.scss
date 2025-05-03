@@ -14,7 +14,7 @@
     padding: 1rem 14rem;
     color: $black;
     &-Navigation-bar{
-        background-color: rgb(184, 181, 181);
+        background-color:$green;
         color: white;
         display: flex;
         width: 100%;
@@ -45,6 +45,7 @@
             align-items: center;
             gap: 1rem;
             &-search-bar{
+                position: relative;
                 height: 2rem;
                 width: 20rem;
                 display: flex;
@@ -58,17 +59,26 @@
                 &-button{
                     height: 100%;
                     width: 20%;
-                    background-color: green;
+                    background-color: blue;
                     color: white;
-                    font-size: 1.5rem;
+                    font-size: 1.1rem;
+                    cursor: pointer;
                     outline: none;
                     border: none;
+                    font-weight: 600;
+                    &:hover{
+                        background-color: $green;
+                        border: 1px solid white;
+                    }
                 }
             }
         }
     }
     &-todo-list {
-        
+        padding: 2rem 0rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         &-header {
             display: flex;
             flex-direction: column;
@@ -191,7 +201,6 @@
                 }
                 &-heading {
                     display: flex;
-                    // flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     gap: 1rem;
@@ -205,11 +214,9 @@
                         align-items: center;
                         font-size: 1.2rem;
                         background-color: transparent;
-                        // height: 100%;
                         width: 20rem;
                         padding: 1rem;
                         border: none;
-                        // background-color: red;
                         outline: none;
 
                         &:hover {
@@ -231,7 +238,7 @@
                             cursor: pointer;
                         }
                     }
-                    // }
+                  
                 }
             }
         }
@@ -244,3 +251,20 @@
 .hidden{
    display: none;
 }
+.container-Navigation-bar-right-search-bar-results{
+    display: flex;
+ 
+    color: white;
+    flex-direction: column;
+    position: absolute;
+    top: 2rem;
+    background: white;
+    width: 16rem;
+    height: 100%;
+    padding: 1rem 1rem;
+}
+.container-Navigation-bar-right-search-bar-results li{
+    color: black;list-style: none;
+
+}
+
