@@ -12,6 +12,58 @@
   padding: 1rem 14rem;
   color: black;
 }
+.container-Navigation-bar {
+  background-color: rgb(184, 181, 181);
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 5rem;
+}
+.container-Navigation-bar-left {
+  display: flex;
+  align-items: center;
+  padding: 0rem 2rem;
+  gap: 1rem;
+  width: 50%;
+}
+.container-Navigation-bar-left-item {
+  list-style: none;
+}
+.container-Navigation-bar-left-item a {
+  text-decoration: none;
+  color: white;
+}
+.container-Navigation-bar-left-item a img {
+  width: 4rem;
+  height: 4rem;
+}
+.container-Navigation-bar-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.container-Navigation-bar-right-search-bar {
+  height: 2rem;
+  width: 20rem;
+  display: flex;
+}
+.container-Navigation-bar-right-search-bar-input {
+  height: 100%;
+  width: 80%;
+  border: none;
+  outline: none;
+  padding: 0rem 1rem;
+}
+.container-Navigation-bar-right-search-bar-button {
+  height: 100%;
+  width: 20%;
+  background-color: green;
+  color: white;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+}
 .container-todo-list-header {
   display: flex;
   flex-direction: column;
@@ -133,7 +185,7 @@
   width: 100%;
 }
 .container-todo-list-message-container-message-heading-value {
-  height: 100%;
+  height: 80%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -152,7 +204,7 @@
 .container-todo-list-message-container-message-heading-para-value {
   font-size: 1.2rem;
   background-color: transparent;
-  height: 100%;
+  height: 80%;
   width: 100%;
   padding: 1rem;
   border: none;
@@ -163,8 +215,12 @@
   cursor: pointer;
 }
 
+.visible {
+  display: block;
+}
+
 .hidden {
-  visibility: 0;
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

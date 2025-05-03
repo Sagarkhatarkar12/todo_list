@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note</title>
+    <link rel="stylesheet" href="/src/style/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-Navigation-bar">
+            <ul class="container-Navigation-bar-left">
+                <li class="container-Navigation-bar-left-item"><a href=""><img src="/src/assets/image/ChatGPT Image May 3, 2025, 03_00_10 PM.png" alt=""></a></li>
+                <li class="container-Navigation-bar-left-item"><a href="">Add note</a></li>
+                <li class="container-Navigation-bar-left-item"><a href="">search note</a></li>
+
+
+            </ul>
+            <ul class="container-Navigation-bar-right">
+                <div class="container-Navigation-bar-right-search-bar">
+                    <input type="text" placeholder="Search..." class="container-Navigation-bar-right-search-bar-input">
+                    <button class="container-Navigation-bar-right-search-bar-button"><i class="ri-search-line"></i></button>
+                </div>
+            </ul>
+        </div>
+
+
+
+        <div class="container-todo-list">
+            <div class="container-todo-list-header">
+
+                <h1 class="container-todo-list-header-heading">Welcome back, <span
+                        class="container-todo-list-userName">Sagar khatarkar</span></h1>
+                <p class="container-todo-list-header-para">You've got <span id="count">0</span> tasks coming up in the
+                    next days.</p>
+
+            </div>
+            <div class="container-todo-list-search">
+                <div>
+                    <div class="container-todo-list-search-option ">
+                        <select class="container-todo-list-search-option-value" name="" id="CateogroySelection">
+                            <option value="SelectOption">Select a options</option>
+                            <option value="Personal">Personal</option>
+                            <option value="work">work</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
+                    </div>
+
+                    <div class="container-todo-list-search-input-text">
+                        <input type="text" minlength="2" maxlength="20" placeholder="add new tasks ..."
+                            class="container-todo-list-search-input-text-value" name="" id="inputText">
+                    </div>
+                    <div class="container-todo-list-search-option">
+                        <select class="container-todo-list-search-option-value" name="" id="PrioritySelection">
+                            <option value="SelectProrites">Priorites</option>
+                            <option value="red">High</option>
+                            <option value="yellow">Medium</option>
+                            <option value="green">Low</option>
+                        </select>
+                    </div>
+
+                    <div class="container-todo-list-search-Calendar">
+                        <input type="date" min="2025-05-01" max="2026-12-31" placeholder="add"
+                            class="container-todo-list-search-Calendar-value" name="" id="CalendarSelection">
+                    </div>
+                    <div class="container-todo-list-search-text-area">
+                        <textarea minlength="2" maxlength="300" placeholder="add description optional....." name=""
+                            id="textArea" cols="30" rows="10"
+                            class="container-todo-list-search-text-area-value"></textarea>
+                    </div>
+
+                    <div class="container-todo-list-search-btn">
+                        <button id="submit" type="submit" class="container-todo-list-search-btn-value">Add Note</button>
+                        <button id="search" type="submit" class="container-todo-list-search-btn-value">search</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+            <button id="search" type="submit" onclick="deleteAll()" class="container-todo-list-search-btn-value">All
+                Delete</button>
+            <div class="container-todo-list-message-container" id="messageContainer">
+            </div>
+
+
+
+            <script src="script/main.js"></script>
+</body>
+
+</html>
