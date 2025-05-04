@@ -146,7 +146,22 @@ searchBtn.addEventListener("click", () => {
 
     // console.log(searchBarInput.value);
 })
+// checking if data due data or not
+function diffrenceInDate(due_date){
+    let currentDate = new Date();
+    let currentDateString = currentDate.toLocaleDateString('en-CA'); 
+ let  dueDate = new Date(due_date)
+    // console.log(currentDateString)
 
+    // console.log("due date" +due_date)
+    let utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    let utc2 = Date.UTC(dueDate.getFullYear(), dueDate.getMonth(), dueDate.getDate());
+    let diffDays = Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
+// console.log("utc1"+utc1,"utc2"+utc2);
+console.log("diffDays "+diffDays);
+    return diffDays
+}
+// diffrenceInDate();
 // render function
 
 function render() {
@@ -161,8 +176,19 @@ function render() {
         if (item.PrioritySelection == "red") bgcolor = "linear-gradient(to right, #ff6b6b, #ff4e50)";
         else if (item.PrioritySelection == "yellow") bgcolor = " linear-gradient(to right, #FFF89A, #FFD93D)";
         else bgcolor = " linear-gradient(to right, #b8f1b0, #70e000)"
-
-        messageContainer.innerHTML += ` <div class="container-todo-list-message-container-message" style="background: ${bgcolor};">
+let diffDay = diffrenceInDate(item.CalendarValue);
+        if(diffDay<0){
+            paraBg= "red"
+        }
+        else if(diffDay==0){
+            paraBg= "yellow"
+        }
+        else{
+            paraBg= "green"
+        }
+        console.log("diffDay"+diffDay);
+        console.log("para"+paraBg);
+       messageContainer.innerHTML += ` <div class="container-todo-list-message-container-message" style="background: ${bgcolor};">
                     <div class="container-todo-list-message-container-message-checkBox" >
                         <input class="container-todo-list-message-container-message-checkBox-value" onchange="CheckBox(event)" type="checkbox" name="" id="">
                     </div>
@@ -171,7 +197,9 @@ function render() {
                         <textArea  class="container-todo-list-message-container-message-heading-value" minlength="2" maxlength="20" readonly>${item.inputTextValue}</textArea>
                        <textArea  class="container-todo-list-message-container-message-heading-para-value" minlength="2" maxlength="300"  readonly>${item.textAreaValue}</textArea>
                        <p>${item.cate}</p>
-                        <p>${item.CalendarValue}</p>
+
+
+                        <p style="color:${paraBg}; font-weight:bold" >due Date ${item.CalendarValue} <br> <span style="color:"${paraBg}" >Renaming day ${diffDay}</span></p>
                         <div class="container-todo-list-search-btn">
                         <button  type="submit"  onclick="Edit_Note(event)" id="editBtn" class="container-todo-list-search-btn-value">Edit Note</button>
                     </div>
