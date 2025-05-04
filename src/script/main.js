@@ -121,8 +121,9 @@ if (localStorage.getItem("collection_item") != null) {
 }
 
 
-// searching  Bar logic
+// searching focus   logic
 searchBtn.addEventListener("click", () => {
+    searchResults.innerHTML ="";    
     Data_collection = localStorage.getItem('collection_item');
     Data_collection = JSON.parse(Data_collection);
     let searchValue = searchBarInput.value.trim().toLowerCase();
@@ -130,28 +131,16 @@ searchBtn.addEventListener("click", () => {
     let filterData = Data_collection.filter((item) => {
         return item.inputTextValue.toLowerCase().includes(searchValue) || item.textAreaValue.toLowerCase().includes(searchValue)
     })
-    searchResults.innerHTML ="";
-    // if(filterData.length == 0) {
-    //     // searchResults.innerHTML = `
-    //     // <div class="containerList">
-    //     // <li class="container-Navigation-bar-right-search-bar-results-item">No results found</li>
-    //     // </div>`
-    //     return
-    // }
-    console.log(filterData)
+
     if(filterData.length==0){
-        searchResults.innerHTML= ` 
-     
-        <li class="container-Navigation-bar-right-search-bar-results-item">No found</li>
         
-        `
+        searchResults.innerHTML+= `<li class="container-Navigation-bar-right-search-bar-results-item">No found</li> `
+        return
     }
     filterData.forEach((item)=>{
+        // console.log("item"+item)
         console.log(item.inputTextValue);
-        console.log(item)
-        console.log()
-        // document.writeln(item.inputTextValue);
-
+    
         searchResults.innerHTML+= `<li class="container-Navigation-bar-right-search-bar-results-item">${item.inputTextValue}</li>`
     })
 
