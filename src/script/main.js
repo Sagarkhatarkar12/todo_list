@@ -123,7 +123,7 @@ if (localStorage.getItem("collection_item") != null) {
 
 // searching focus   logic
 searchBtn.addEventListener("click", () => {
-    searchResults.innerHTML ="";    
+    searchResults.innerHTML = "";
     Data_collection = localStorage.getItem('collection_item');
     Data_collection = JSON.parse(Data_collection);
     let searchValue = searchBarInput.value.trim().toLowerCase();
@@ -132,34 +132,47 @@ searchBtn.addEventListener("click", () => {
         return item.inputTextValue.toLowerCase().includes(searchValue) || item.textAreaValue.toLowerCase().includes(searchValue)
     })
 
-    if(filterData.length==0){
-        
-        searchResults.innerHTML+= `<li class="container-Navigation-bar-right-search-bar-results-item">No found</li> `
+    if (filterData.length == 0) {
+
+        searchResults.innerHTML += `<li class="container-Navigation-bar-right-search-bar-results-item">No found</li> `
         return
     }
-    filterData.forEach((item)=>{
+    filterData.forEach((item) => {
         // console.log("item"+item)
         console.log(item.inputTextValue);
-    
-        searchResults.innerHTML+= `<li class="container-Navigation-bar-right-search-bar-results-item">${item.inputTextValue}</li>`
+
+        searchResults.innerHTML += `<li class="container-Navigation-bar-right-search-bar-results-item">${item.inputTextValue}</li>`
     })
 
     // console.log(searchBarInput.value);
 })
 // checking if data due data or not
-function diffrenceInDate(due_date){
+function diffrenceInDate(due_date) {
     let currentDate = new Date();
-    let currentDateString = currentDate.toLocaleDateString('en-CA'); 
- let  dueDate = new Date(due_date)
+    let currentDateString = currentDate.toLocaleDateString('en-CA');
+    let dueDate = new Date(due_date)
     // console.log(currentDateString)
 
     // console.log("due date" +due_date)
     let utc1 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
     let utc2 = Date.UTC(dueDate.getFullYear(), dueDate.getMonth(), dueDate.getDate());
     let diffDays = Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
-// console.log("utc1"+utc1,"utc2"+utc2);
-console.log("diffDays "+diffDays);
+    // console.log("utc1"+utc1,"utc2"+utc2);
+    console.log("diffDays " + diffDays);
     return diffDays
+}
+
+function checkDueDate(diffDay) {
+    if (diffDay < 0) {
+        paraBg = "red"
+    }
+    else if (diffDay == 0) {
+        paraBg = "yellow"
+    }
+    else {
+        paraBg = "green"
+    }
+    return paraBg
 }
 // diffrenceInDate();
 // render function
@@ -176,19 +189,10 @@ function render() {
         if (item.PrioritySelection == "red") bgcolor = "linear-gradient(to right, #ff6b6b, #ff4e50)";
         else if (item.PrioritySelection == "yellow") bgcolor = " linear-gradient(to right, #FFF89A, #FFD93D)";
         else bgcolor = " linear-gradient(to right, #b8f1b0, #70e000)"
-let diffDay = diffrenceInDate(item.CalendarValue);
-        if(diffDay<0){
-            paraBg= "red"
-        }
-        else if(diffDay==0){
-            paraBg= "yellow"
-        }
-        else{
-            paraBg= "green"
-        }
-        console.log("diffDay"+diffDay);
-        console.log("para"+paraBg);
-       messageContainer.innerHTML += ` <div class="container-todo-list-message-container-message" style="background: ${bgcolor};">
+        let diffDay = diffrenceInDate(item.CalendarValue);
+        let paraBg = checkDueDate(diffDay);
+
+        messageContainer.innerHTML += ` <div class="container-todo-list-message-container-message" style="background: ${bgcolor};">
                     <div class="container-todo-list-message-container-message-checkBox" >
                         <input class="container-todo-list-message-container-message-checkBox-value" onchange="CheckBox(event)" type="checkbox" name="" id="">
                     </div>
