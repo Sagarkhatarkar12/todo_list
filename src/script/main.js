@@ -45,13 +45,18 @@ submitButton.addEventListener("click", (e) => {
 
 
 })
+// ondoble click on textarea to edit
+
 // Edit Note logic
+
 
 function Edit_Note(e) {
 
-
-    let element1 = e.target.parentNode.parentNode.children[0];
-    let element2 = e.target.parentNode.parentNode.children[1];
+    const parentMessage = e.target.closest('.container-todo-list-message-container-message');
+    const headingDiv = parentMessage.querySelector('.container-todo-list-message-container-message-heading');
+    const element1 = headingDiv.children[0]; 
+    const element2 = headingDiv.children[1];
+   
     element1.removeAttribute("readonly");
     element2.removeAttribute("readonly");
     element1.style.border = "2px solid black";
@@ -64,16 +69,21 @@ function Edit_Note(e) {
 
 function Update_Note(e, index) {
 
-    let element1 = e.target.parentNode.parentNode.children[0];
-    let element2 = e.target.parentNode.parentNode.children[1];
+    const parentMessage = e.target.closest('.container-todo-list-message-container-message');
+    const headingDiv = parentMessage.querySelector('.container-todo-list-message-container-message-heading');
+    const element1 = headingDiv.children[0]; // First textarea (inputTextValue)
+    const element2 = headingDiv.children[1]; // Second textarea (textAreaValue)
+
     element1.setAttribute("readonly", "true");
     element2.setAttribute("readonly", "true");
     element1.style.border = "none";
     element2.style.border = "none";
-    let inputTextValue = element1.value.trim();
-    let textAreaValue = element2.value.trim();
+
+    const inputTextValue = element1.value.trim();
+    const textAreaValue = element2.value.trim();
     collection_item[index].inputTextValue = inputTextValue;
     collection_item[index].textAreaValue = textAreaValue;
+
     localStorage.setItem("collection_item", JSON.stringify(collection_item));
     render();
 
@@ -144,7 +154,7 @@ searchBtn.addEventListener("click", () => {
         searchResults.innerHTML += `<li class="container-Navigation-bar-right-search-bar-results-item">${item.inputTextValue}</li>`
     })
 
-    // console.log(searchBarInput.value);
+  
 })
 // checking if data due data or not
 function diffrenceInDate(due_date) {
@@ -174,7 +184,7 @@ function checkDueDate(diffDay) {
     }
     return paraBg
 }
-// diffrenceInDate();
+
 // render function
 
 function render() {
@@ -198,17 +208,17 @@ function render() {
                     </div>
                     <p> ${index + 1}</p>
                     <div class="container-todo-list-message-container-message-heading">
-                        <textArea  class="container-todo-list-message-container-message-heading-value" minlength="2" maxlength="20" readonly>${item.inputTextValue}</textArea>
-                       <textArea  class="container-todo-list-message-container-message-heading-para-value" minlength="2" maxlength="300"  readonly>${item.textAreaValue}</textArea>
+                        <textArea  class="container-todo-list-message-container-message-heading-value"      readonly  >${item.inputTextValue}</textArea>
+                       <textArea  class="container-todo-list-message-container-message-heading-para-value"  readonly  >${item.textAreaValue}</textArea>
                        <p>${item.cate}</p>
 
 
-                        <p style="color:${paraBg}; font-weight:bold" >due Date ${item.CalendarValue} <br> <span style="color:"${paraBg}" >Renaming day ${diffDay}</span></p>
+                        <p style="color:${paraBg}; font-weight:bold" >due Date ${item.CalendarValue} <br> <span style="color:${paraBg}" >Renaming day ${diffDay}</span></p>
                         <div class="container-todo-list-search-btn">
-                        <button  type="submit"  onclick="Edit_Note(event)" id="editBtn" class="container-todo-list-search-btn-value">Edit Note</button>
+                        <button  type="submit"  onclick="Edit_Note(event)" id="editBtn" class="container-todo-list-search-btn-value"><i class="ri-edit-box-line"></i></button>
                     </div>
                         <div class="container-todo-list-search-btn">
-                        <button  type="submit"onclick="Update_Note(event,${index})"  id="updateBtn"   class="container-todo-list-search-btn-value">Update Note</button>
+                        <button  type="submit"onclick="Update_Note(event,${index})"  id="updateBtn"   class="container-todo-list-search-btn-value"><i class="ri-loop-right-fill"></i></button>
                     </div>
                      </div>
                     

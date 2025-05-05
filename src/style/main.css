@@ -9,7 +9,6 @@
   background-color: #f6f6f6;
   min-height: 100vh;
   width: 100vw;
-  padding: 1rem 14rem;
   color: black;
 }
 .container-Navigation-bar {
@@ -72,16 +71,16 @@
   border: 1px solid white;
 }
 .container-todo-list {
-  padding: 2rem 0rem;
+  padding: 0rem 0rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 .container-todo-list-header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   background-color: #ffffff;
+  padding: 1rem 2rem;
 }
 .container-todo-list-header-heading {
   font-size: 2rem;
@@ -91,10 +90,10 @@
 }
 .container-todo-list-search {
   display: flex;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   background-color: #ffffff;
-  padding: 2rem 0rem;
+  padding: 2rem 2rem;
 }
 .container-todo-list-search-Calendar {
   display: inline-block;
@@ -127,13 +126,19 @@
   margin: 1rem 0rem;
 }
 .container-todo-list-search-text-area-value {
-  width: 100%;
-  height: 2rem;
+  height: 3rem;
   border-radius: 1rem;
-  padding: 0rem 1rem;
+  padding: 1rem 3rem;
+  width: 100%;
   border: none;
   font-weight: bold;
   outline: none;
+  border: 1px solid red;
+  display: flex;
+  overflow: hidden;
+  resize: none;
+  justify-content: center;
+  align-items: center;
 }
 .container-todo-list-search-input-text {
   display: inline-block;
@@ -160,7 +165,8 @@
 .container-todo-list-message-container {
   display: flex;
   flex-direction: column;
-  padding: 2rem 0rem;
+  align-items: center;
+  padding: 1rem 1rem;
   height: 100%;
   width: 100%;
   background-color: #ffffff;
@@ -172,10 +178,9 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  height: 15rem;
+  height: fit-content;
   width: 100%;
-  border: green solid 1px;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 .container-todo-list-message-container-message-delete-value {
   background-color: green;
@@ -255,6 +260,10 @@
 }
 .container-Navigation-bar-right-search-bar-results li:hover {
   background-color: rgb(219, 215, 215);
+}
+
+.add_note {
+  padding: 2rem 0rem;
 }
 
 /*# sourceMappingURL=main.css.map */
